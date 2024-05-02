@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        // Function to extract the direct URL parameter
+        function getDirectURLParameter() {
+            var queryString = window.location.search;
+            if(queryString.startsWith("?")) {
+                return queryString.substr(1); // Remove '?' and return URL parameter
+            }
+            return null;
+        }
+
+        // Redirect using extracted URL parameter
+        window.onload = function() {
+            var directLinkValue = getDirectURLParameter();
+            if (directLinkValue) {
+				// If direct URL parameter provided, redirect to this specific page
+                window.location.href = "https://kucharski.substack.com/p/" + directLinkValue;
+            } else {
+                // If no direct URL parameter provided, redirect to homepage
+                window.location.href = "https://kucharski.substack.com/";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
